@@ -12,11 +12,11 @@ description: "A basic example of a managed COM server in .NET Core"
 
 # COM Server Demo
 
-This is a basic example of providing a managed COM server in .NET Core 3.1. Documentation on the inner workings of activation can be found [here](https://github.com/dotnet/runtime/blob/main/docs/design/features/COM-activation.md).
+This is a basic example of providing a managed COM server in .NET Core 5 and later
 
 ## Key Features
 
-Demonstrates how to provide a COM server in .NET Core 3.1 or later.
+Demonstrates how to provide a COM server in .NET Core 5 or later.
 
 Additional comments are contained in source and project files.
 
@@ -26,7 +26,7 @@ The project will only build and run on the Windows platform. You can build and r
 
 ### Registered COM
 
-1. Install .NET Core 3.1 or later.
+1. Install .NET Core 5 or later.
 
 1. Navigate to the root directory and run `dotnet.exe build`.
 
@@ -40,7 +40,7 @@ Program should output an estimated value of &#960;.
 
 ### RegFree COM
 
-1. Install .NET Core 3.1 or later.
+1. Install .NET Core 5 or later.
 
 1. Navigate to the root directory and run `dotnet.exe build /p:RegFree=True`.
 
