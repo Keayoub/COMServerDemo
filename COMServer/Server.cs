@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace c
+namespace COMClient
 {
     [ComVisible(true)]
     [Guid(ContractGuids.ServerClass)]
