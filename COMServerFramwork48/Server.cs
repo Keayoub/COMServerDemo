@@ -1,20 +1,18 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace COMServer
-{    
-    [ComVisible(true)]
-    [Guid("12345678-ABCD-1234-ABCD-123456789ABC")]
-    [InterfaceType(ComInterfaceType.InterfaceIsDual)]
-    public interface IServer
-    {
-        double ComputePi();
-    }
-
+namespace COMServerFramwork48
+{
 
     [ComVisible(true)]
-    [Guid("98765432-ABCD-1234-ABCD-123456789ABC")]    
+    [Guid("BB41BA7B-036F-49B5-B7D7-BA2B1B47F514")]
     [ClassInterface(ClassInterfaceType.None)]
-    public class Server : IServer
+    [ProgId("COMServer.ServerFramework")]
+    public class Server
     {
         public double ComputePi()
         {

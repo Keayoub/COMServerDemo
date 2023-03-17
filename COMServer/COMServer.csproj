@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!--
@@ -15,13 +15,15 @@
         In a RegFree COM scenario, the following file must also be deployed:
             COMServer.X.manifest
     -->
-    <TargetFramework>net6.0</TargetFramework>    
+    <TargetFramework>net6.0-windows</TargetFramework>    
 
     <!-- Indicate the assembly is providing a COM server -->
     <EnableComHosting>True</EnableComHosting>
 
     <!-- Generate a RegFree COM manifest -->
     <EnableRegFreeCom Condition="'$(RegFree)' == 'True'">True</EnableRegFreeCom>
+    
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,13 +32,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="..\COMContract\ContractGuids.cs" />
+    <Compile Remove="..\COMContract\IServer.cs" />
+  </ItemGroup>
+ 
+  <ItemGroup>
     <RuntimeHostConfigurationOption Condition="'$(DefaultALC)' == 'True'" Include="System.Runtime.InteropServices.COM.LoadComponentInDefaultContext" Value="true" />
   </ItemGroup>
 
   <Target Name="ServerUsage" Condition="'$(RegFree)' != 'True'" AfterTargets="Build">
     <Message Importance="High" Text="%0a************************************%0a*** $(MSBuildProjectName) usage instructions ***%0a************************************" />
     <Message Importance="High" Text="The server must be COM registered in order to activate.%0aThe following commands must be executed from an elevated command prompt." />
-    <Message Importance="High" Text="Register:%0a    regsvr32.exe &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />
+    <Message Importance="High" Text="Register:%0a    regsvr32.exe &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />    
+    <Message Importance="High" Text="Register COM in 32bits:%0a     C:\Windows\SysWOW64\regsvr32.exe &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />
     <Message Importance="High" Text="Unregister:%0a    regsvr32.exe /u &quot;$(ProjectDir)$(OutputPath)$(ComHostFileName)&quot;" />
   </Target>
 

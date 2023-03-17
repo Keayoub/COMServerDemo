@@ -1,1 +1,2 @@
-﻿
+﻿public const string ServerClass = "B6F51E3A-F847-46EB-B1B2-6D15C16033EF";
+public const string ServerInterface = "EB53B88F-0BE5-4A59-93AF-22084A50BCDC";
