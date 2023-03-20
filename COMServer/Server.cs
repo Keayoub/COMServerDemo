@@ -1,7 +1,8 @@
 ﻿using System.Runtime.InteropServices;
+using COMServerFramwork48;
 
 namespace COMServer
-{    
+{
     [ComVisible(true)]
     [Guid("12345678-ABCD-1234-ABCD-123456789ABC")]
     [InterfaceType(ComInterfaceType.InterfaceIsDual)]
@@ -12,8 +13,9 @@ namespace COMServer
 
 
     [ComVisible(true)]
-    [Guid("98765432-ABCD-1234-ABCD-123456789ABC")]    
+    [Guid("98765432-ABCD-1234-ABCD-123456789ABC")]
     [ClassInterface(ClassInterfaceType.None)]
+    [ProgId("COMServer.Server")]
     public class Server : IServer
     {
         public double ComputePi()

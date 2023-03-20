@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <TargetFramework Condition="'$(DefaultALC)' == 'True'">net8.0</TargetFramework>
 
     <!-- The application manifest is only needed for RegFree COM scenarios -->
     <ApplicationManifest Condition="'$(RegFree)' == 'True'">COMClient.manifest</ApplicationManifest>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>

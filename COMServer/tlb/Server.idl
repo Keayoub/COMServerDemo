@@ -1,0 +1,29 @@
+﻿
+[uuid(F58CB522-862A-4EF7-BB35-205452E48D4D), version(1.0)]
+library COMServer
+{
+	import "oaidl.idl";
+	import "ocidl.idl";
+
+	[
+		uuid(12345678-ABCD-1234-ABCD-123456789ABC),
+		dual,
+		helpstring("IServer Interface"),
+		pointer_default(unique)
+	]
+	interface IServer : IDispatch
+	{
+		HRESULT ComputePi([out, retval] DOUBLE* returnValue);
+	}
+
+	[
+		uuid(98765432-ABCD-1234-ABCD-123456789ABC),
+		helpstring("Server Class"),
+		version(1.0),		
+		custom(DE73FBC7-06D6-11D1-BD3B-00A0C911CE86, 100)
+	]
+	coclass Server
+	{
+		[default] interface IServer;
+	};
+}
